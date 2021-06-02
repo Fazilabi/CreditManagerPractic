@@ -8,8 +8,8 @@ namespace CreditManager
     {
         public void ApplyCredit(ICreditManager creditManagers, List<ILoggerService> loggerServices)
         {
-
-            creditManagers.Calculate();
+            
+              creditManagers.Calculate();
             
             Console.WriteLine("------------------------");
             foreach (var logger in loggerServices)
@@ -19,17 +19,16 @@ namespace CreditManager
         }
         
 
-        public void ForeCalcMoreCredit(List<ILoggerService> loggerServices, List<ICreditManager> creditManagers)
+        public void ForeCalcMoreCredit(ILoggerService loggerService, List<ICreditManager> creditManagers)
         {
             foreach (var credit in creditManagers)
             {
                 credit.Calculate();
             }
             Console.WriteLine("------------------------");
-            foreach (var logger in loggerServices)
-            {
-                logger.Log();
-            }
+           
+                loggerService.Log();
+           
         }
     }
 }

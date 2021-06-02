@@ -24,14 +24,16 @@ namespace CreditManager
             //mortgage.Calculate();
             //loan.Calculate();
             List<ILoggerService> loggerServices = new List<ILoggerService>() { dataBaseLoggerService,smsLoggerService, emailLoggerService, fileLoggerService};
-            //List<ICreditManager> creditManagers = new List<ICreditManager>() { loan, mortgage, officer };
+            List<ICreditManager> creditManagers = new List<ICreditManager>() { loan, mortgage, officer };
 
             ApplyManager applyManager = new ApplyManager();
 
 
 
             applyManager.ApplyCredit(loan, loggerServices);
-            //applyManager.ForeCalcMoreCredit(loggerServices, creditManagers);
+
+            Console.WriteLine("*******************");
+            applyManager.ForeCalcMoreCredit(smsLoggerService, creditManagers);
         }
     }
 }
