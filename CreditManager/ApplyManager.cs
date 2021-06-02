@@ -6,12 +6,11 @@ namespace CreditManager
 {
     class ApplyManager
     {
-        public void ApplyCredit(List<ICreditManager> creditManagers, List<ILoggerService> loggerServices)
+        public void ApplyCredit(ICreditManager creditManagers, List<ILoggerService> loggerServices)
         {
-            foreach (var credit in creditManagers)
-            {
-                credit.Calculate();
-            }
+
+            creditManagers.Calculate();
+            
             Console.WriteLine("------------------------");
             foreach (var logger in loggerServices)
             {
